@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body_content %}
+	<p>Enter Your Rating </p>
+	<div class="form-group">
+		<form method='Post' action=''>
+        		{{ form.hidden_tag() }}
+			{{ form.rating_value.label }}
+			{{ form.rating_value }}
+			{% if form.rating_value.errors %}
+       				<div class="error">
+					{% for error in form.rating_value.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% endif %}
+			<div class="form-group">
+				{{ form.submit }}
+			</div>
+		</form>
+	</div>
+{% endblock %}

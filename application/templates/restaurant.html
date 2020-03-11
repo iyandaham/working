@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<div>
+<p>Enter A Restaurant </p>
+        <div class="form-group">
+		<form method='POST' action=''>
+        		{{ form.hidden_tag() }}
+			{{ form.rest_name.label }}
+			{{ form.rest_name }}
+			{% if form.rest_name.errors %}
+				<div class="error">
+            				{% for error in form.rest_name.errors %}
+						<span>{{ error}} </span>
+					{% endfor %}
+				</div>
+			{% endif %}
+			<br>
+			{{ form.meal.label }}
+			{{ form.meal }}
+			{% if form.meal.errors %}
+				<div class="error">
+					{% for error in form.meal.errors %}
+                				<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% endif %}
+			<div class="form-group">
+				{{ form.location.label }}
+        			{{ form.location }}
+				{% if form.location.errors %}
+					<div class="error">
+            					{% for error in form.location.errors %}
+                					<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+			<br>
+			<div class='form_group'>
+				{{ form.submit }}
+			</div>			
+		</form>
+	</div>
+
+{% endblock %}
+
+

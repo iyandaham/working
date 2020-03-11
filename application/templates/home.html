@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body_content %}
+
+        <p>Welcome to this web app!</p>
+        {% for post in posts %}​
+                <div>
+                        <h3>{{ post.title }}</h3>
+                        <span>by <i>{{ post.author.first_name }} {{ post.author.last_name }}</i></span>
+                        <span> on the <i>{{ post.date_posted }}</i></span>
+                        <p> -- {{ post.content }}</p>
+                </div>
+         {% endfor %}
+	<br>
+
+
+<p> Current Restaurants <p>
+{% for rest in restaurants %}
+<div>
+	<table border="1">
+	<tr>
+	<th>ID</th>
+	<th>RESTAURANT NAME</th>
+	<th>MEAL</th>
+	<th>Location</th>
+	<th>Rating</th>
+	</tr>
+	<tr>	
+	<td>{{ rest.id }}</td>
+	<td>{{ rest.rest_name}}</td>
+	<td>{{ rest.meal }}</td>
+	<td>{{ rest.location }}</td>
+	<td>{{ rating_value.id }}</td>
+
+	<td><a href="{{ url_for('delete_rest_id',rest_id =rest.id)}}"><button type>Delete this Restauraunt</button></a></td>
+	<td><a href="{{ url_for('update', rest_id = rest.id)}}"><button type>Update this Restaurant</button></a></td>
+	</tr>
+	</table>
+</div>
+{% endfor %}
+<br>
+{% endblock %}
